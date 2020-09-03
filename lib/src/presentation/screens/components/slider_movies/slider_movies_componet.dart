@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/src/presentation/screens/components/movie_card/movie_card_component.dart';
+import 'package:movieapp/src/presentation/screens/movie/detail_movie_page.dart';
 class SliderMoviesComponent extends StatelessWidget {
   final String title;
 
@@ -27,6 +28,9 @@ class SliderMoviesComponent extends StatelessWidget {
               return MovieCardComponent(
                 title: "Avengers: Endgame",
                 urlImage: "https://m.media-amazon.com/images/M/MV5BMTY4OTcyMDUyNF5BMl5BanBnXkFtZTcwNzkyMjgxMQ@@._V1_.jpg",
+                onTap: (){
+                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=> DetailMoviePage()));
+                },
               );
             }),
       )

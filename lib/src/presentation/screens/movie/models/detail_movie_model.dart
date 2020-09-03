@@ -149,8 +149,8 @@ class DetailMovieModel {
 class BelongsToCollection {
   int id;
   String name;
-  Null posterPath;
-  Null backdropPath;
+  String posterPath;
+  String backdropPath;
 
   BelongsToCollection({this.id, this.name, this.posterPath, this.backdropPath});
 

@@ -7,10 +7,9 @@ class MovieHttp extends ApiProvider{
   Future<SearchMultiModel> searchMovie(String query) async{
     try{
       Response response =  await dio.get("search/movie?api_key=68f5c2c960dd4fca9be406440e5aa4e6&query=$query");
-      print(response.data);
+
      return SearchMultiModel.fromJson(response.data);
     }catch (error){
-      print("Http Error $error");
       return Future.error(error);
     }
   }
@@ -18,10 +17,9 @@ class MovieHttp extends ApiProvider{
   Future<SearchMultiModel> discover() async{
     try{
       Response response =  await dio.get("discover/movie?api_key=68f5c2c960dd4fca9be406440e5aa4e6&query");
-      print(response.data);
+
      return SearchMultiModel.fromJson(response.data);
     }catch (error){
-      print("Http Error $error");
       return Future.error(error);
     }
   }
@@ -29,7 +27,7 @@ class MovieHttp extends ApiProvider{
   Future<DetailMovieModel> detailMovie(id) async{
     try{
       Response response =  await dio.get("movie/$id?api_key=68f5c2c960dd4fca9be406440e5aa4e6");
-      print(response.data);
+
      return DetailMovieModel.fromJson(response.data);
     }catch (error){
       print("Http Error $error");

@@ -71,12 +71,14 @@ class DetailMoviePage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          Text(
-                            state.data.title,
-                            style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                          Flexible(
+                            child: Text(
+                              state.data.title,
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
                           ),
                           SizedBox()
                         ],
@@ -220,7 +222,10 @@ class DetailMoviePage extends StatelessWidget {
                   ],
                 );
               }
-              return Center(child: CircularProgressIndicator());
+              return Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                  child: Center(child: CircularProgressIndicator()));
             },
           ),
         ),

@@ -64,7 +64,7 @@ class _MoviesPageState extends State<MoviesPage> {
                               movies: state.recommended,
                             );
                           }
-                       return CircularProgressIndicator();
+                       return Center(child: CircularProgressIndicator());
                     }),
                     BlocBuilder<MovieBloc, MovieState>(
                         cubit: movieBloc,

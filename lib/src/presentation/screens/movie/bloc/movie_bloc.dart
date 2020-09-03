@@ -29,9 +29,14 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
 
   Stream<MovieState> _mapSearchMultiToState(SearchMultiEvent event) async* {
     try {
-      var res = await _moviesRepository.searchMulti(event.query);
-      print(res);
-      yield ResultMoviesState(data: res);
+      if(event.query != ""){
+        var res = await _moviesRepository.searchMovie(event.query);
+        yield ResultMoviesState(data: res,
+            recommended: res.results,
+            top: res.results.where((element) => element.voteAverage >= 6).toList()
+        );
+      }
+      else  add(GetDiscoverEvent());
     } catch (error) {
       print(error);
     }

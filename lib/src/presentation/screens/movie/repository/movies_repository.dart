@@ -4,9 +4,9 @@ import 'package:movieapp/src/presentation/screens/movie/models/search_multi_mode
 class MoviesRepository {
   MovieHttp movieHttp = MovieHttp();
 
-  Future<SearchMultiModel> searchMulti(String query) async{
+  Future<SearchMultiModel> searchMovie(String query) async{
     try{
-      return movieHttp.searchMulti(query);
+      return movieHttp.searchMovie(query);
     }catch (error){
       return Future.error(error);
     }

@@ -13,8 +13,8 @@ class _SearchComponentState extends State<SearchComponent> {
     return TextFormField(
       decoration: InputDecoration(
         filled: true,
-        prefixIcon: Icon(Icons.search, color: Colors.white,),
-        fillColor: Colors.white.withOpacity(0.2),
+        prefixIcon: Icon(Icons.search, color: Theme.of(context).textTheme.headline1.color,),
+        fillColor: Theme.of(context).textTheme.headline1.color.withOpacity(0.2),
         contentPadding: EdgeInsets.all(2),
         border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(50)),

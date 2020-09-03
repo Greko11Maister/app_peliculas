@@ -64,7 +64,7 @@ class _MoviesPageState extends State<MoviesPage> {
                               movies: state.recommended,
                             );
                           }
-                       return Center(child: CircularProgressIndicator());
+                       return SizedBox();
                     }),
                     BlocBuilder<MovieBloc, MovieState>(
                         cubit: movieBloc,
@@ -75,9 +75,9 @@ class _MoviesPageState extends State<MoviesPage> {
                               movies: state.top,
                             );
                           }
-                          return CircularProgressIndicator();
+                          return SizedBox();
                         }),
-
+                    SizedBox(height: 100,)
                   ],),
                 ),
               )

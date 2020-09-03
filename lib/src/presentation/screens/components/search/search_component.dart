@@ -23,6 +23,20 @@ class _SearchComponentState extends State<SearchComponent> {
                 width: 5.0
             )
         ),
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(50)),
+            borderSide: BorderSide(
+                color: Colors.transparent,
+                width: 5.0
+            )
+        ),
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(50)),
+            borderSide: BorderSide(
+                color: Colors.transparent,
+                width: 5.0
+            )
+        ),
       ),
       onChanged: widget.onChanged
     );

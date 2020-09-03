@@ -15,3 +15,7 @@ class SearchMultiEvent extends MovieEvent{
   final String query;
   SearchMultiEvent({this.query});
 }
+
+class GetDiscoverEvent extends MovieEvent{
+
+}

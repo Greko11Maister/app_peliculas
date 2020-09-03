@@ -6,8 +6,9 @@ class MovieCardComponent extends StatelessWidget {
   final String urlImage;
   final int star;
   final VoidCallback onTap;
+  final double voteAverage;
 
-  const MovieCardComponent({Key key, this.title, this.urlImage, this.star, this.onTap}) : super(key: key);
+  const MovieCardComponent({Key key, this.title, this.urlImage, this.star, this.onTap, this.voteAverage = 0}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -27,11 +28,11 @@ class MovieCardComponent extends StatelessWidget {
             child: Wrap(
               spacing: 5,
               children: [
-              Icon(Icons.star, color: Colors.yellowAccent, size: 14,),
-               Icon(Icons.star, color: Colors.yellowAccent, size: 14),
-               Icon(Icons.star, color: Colors.yellowAccent, size: 14),
-               Icon(Icons.star, color: Colors.yellowAccent, size: 14),
-              Icon(Icons.star, color: Colors.grey, size: 14),
+              Icon(Icons.star, color: voteAverage > 1 ? Colors.yellowAccent :Colors.grey, size: 14,),
+               Icon(Icons.star, color: voteAverage > 2 ? Colors.yellowAccent :Colors.grey, size: 14),
+               Icon(Icons.star, color: voteAverage > 3 ? Colors.yellowAccent :Colors.grey, size: 14),
+               Icon(Icons.star, color: voteAverage > 4 ? Colors.yellowAccent :Colors.grey, size: 14),
+              Icon(Icons.star, color: voteAverage > 5 ? Colors.yellowAccent :Colors.grey, size: 14),
             ],),
           )
         ],

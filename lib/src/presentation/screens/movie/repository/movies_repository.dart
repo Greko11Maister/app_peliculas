@@ -11,4 +11,13 @@ class MoviesRepository {
       return Future.error(error);
     }
   }
+
+  Future<SearchMultiModel> discover() async{
+    try{
+      return movieHttp.discover();
+    }catch (error){
+      print("Http Error $error");
+      return Future.error(error);
+    }
+  }
 }

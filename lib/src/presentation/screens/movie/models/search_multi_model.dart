@@ -37,7 +37,7 @@ class Results {
   int id;
   bool video;
   String mediaType;
-  dynamic voteAverage;
+  double voteAverage;
   String title;
   String releaseDate;
   String originalLanguage;
@@ -87,7 +87,7 @@ class Results {
     id = json['id'];
     video = json['video'];
     mediaType = json['media_type'];
-    voteAverage = json['vote_average'];
+    voteAverage = double.parse(json['vote_average'].toString());
     title = json['title'];
     releaseDate = json['release_date'];
     originalLanguage = json['original_language'];

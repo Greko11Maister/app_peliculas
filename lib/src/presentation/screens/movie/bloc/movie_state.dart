@@ -10,9 +10,11 @@ abstract class MovieState extends Equatable{
 
 class InitialMovieState extends MovieState{}
 
-class SearchMultiState extends MovieState{
+class ResultMoviesState extends MovieState{
   final SearchMultiModel data;
-  SearchMultiState({this.data});
+  final List<Results> top;
+  final List<Results> recommended;
+  ResultMoviesState({this.top, this.recommended, this.data});
 
   @override
   List<Object> get props => [

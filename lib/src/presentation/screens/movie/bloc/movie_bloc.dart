@@ -21,15 +21,30 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
       case SearchMultiEvent:
         yield* _mapSearchMultiToState(event);
         break;
+      case GetDiscoverEvent:
+        yield* _mapDiscoverToState(event);
+        break;
     }
   }
 
   Stream<MovieState> _mapSearchMultiToState(SearchMultiEvent event) async* {
     try {
-      print("_moviesRepository: $_moviesRepository");
       var res = await _moviesRepository.searchMulti(event.query);
       print(res);
-      yield SearchMultiState(data: res);
+      yield ResultMoviesState(data: res);
+    } catch (error) {
+      print(error);
+    }
+  }
+
+  Stream<MovieState> _mapDiscoverToState(GetDiscoverEvent event) async* {
+    try {
+      var res = await _moviesRepository.discover();
+      print(res);
+      yield ResultMoviesState(data: res,
+      recommended: res.results,
+      top: res.results.where((element) => element.voteAverage >= 6).toList()
+      );
     } catch (error) {
       print(error);
     }

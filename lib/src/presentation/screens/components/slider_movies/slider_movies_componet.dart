@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/src/presentation/screens/components/movie_card/movie_card_component.dart';
 import 'package:movieapp/src/presentation/screens/movie/detail_movie_page.dart';
+
+import '../../movie/models/search_multi_model.dart';
 class SliderMoviesComponent extends StatelessWidget {
   final String title;
+  final List<Results> movies;
 
-  const SliderMoviesComponent({Key key, this.title}) : super(key: key);
+  const SliderMoviesComponent({Key key, this.title, this.movies}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +24,14 @@ class SliderMoviesComponent extends StatelessWidget {
       Container(
         height: 230,
         child: ListView.builder(
-            itemCount: 10,
+            itemCount: movies.length,
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, i){
               return MovieCardComponent(
-                title: "Avengers: Endgame",
-                urlImage: "https://m.media-amazon.com/images/M/MV5BMTY4OTcyMDUyNF5BMl5BanBnXkFtZTcwNzkyMjgxMQ@@._V1_.jpg",
+                title: movies[i].title,
+                urlImage: "https://image.tmdb.org/t/p/w500${movies[i].posterPath}",
+                voteAverage: movies[i].voteAverage,
                 onTap: (){
                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> DetailMoviePage()));
                 },

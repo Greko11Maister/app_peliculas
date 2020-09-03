@@ -17,7 +17,6 @@ class MoviesRepository {
     try{
       return movieHttp.discover();
     }catch (error){
-      print("Http Error $error");
       return Future.error(error);
     }
   }
@@ -26,7 +25,6 @@ class MoviesRepository {
     try{
       return movieHttp.detailMovie(id);
     }catch (error){
-      print("Http Error $error");
       return Future.error(error);
     }
   }

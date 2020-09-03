@@ -49,7 +49,6 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
   Stream<MovieState> _mapDiscoverToState(GetDiscoverEvent event) async* {
     try {
       var res = await _moviesRepository.discover();
-      print(res);
       yield ResultMoviesState(data: res,
       recommended: res.results,
       top: res.results.where((element) => element.voteAverage >= 6).toList()

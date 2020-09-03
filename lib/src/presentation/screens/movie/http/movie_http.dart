@@ -30,7 +30,6 @@ class MovieHttp extends ApiProvider{
 
      return DetailMovieModel.fromJson(response.data);
     }catch (error){
-      print("Http Error $error");
       return Future.error(error);
     }
   }

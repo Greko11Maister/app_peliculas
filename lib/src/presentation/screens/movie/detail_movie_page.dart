@@ -22,7 +22,7 @@ class DetailMoviePage extends StatelessWidget {
     movieBloc.add(GetDetailMovieIdEvent(id: idMovie));
 
     return Scaffold(
-      backgroundColor: Color(0xFF2C3848),
+      backgroundColor: Theme.of(context).primaryColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: BlocBuilder<MovieBloc, MovieState>(
@@ -74,10 +74,9 @@ class DetailMoviePage extends StatelessWidget {
                           Flexible(
                             child: Text(
                               state.data.title,
-                              style: TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                              style: Theme.of(context).textTheme.headline1.copyWith(
+                                fontSize: 24
+                              ),
                             ),
                           ),
                           SizedBox()
@@ -96,10 +95,9 @@ class DetailMoviePage extends StatelessWidget {
                                   borderRadius: BorderRadius.all(Radius.circular(50))),
                               child: Text(
                                 "WATCH NOW",
-                                style: TextStyle(
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
+                                style: Theme.of(context).textTheme.headline1.copyWith(
+                                    fontSize: 11
+                                ),
                               )),
                           Wrap(
                             spacing: 5,
@@ -118,8 +116,10 @@ class DetailMoviePage extends StatelessWidget {
                       padding: const EdgeInsets.all(30),
                       child: Text(
                         state.data.overview,
-                        style: TextStyle(
-                            color: Colors.white.withOpacity(0.7), fontSize: 13),
+                        style: Theme.of(context).textTheme.headline1.copyWith(
+                            fontSize: 13,
+                          color: Theme.of(context).textTheme.headline1.color.withOpacity(0.7)
+                        ),
                         textAlign: TextAlign.left,
                       ),
                     ),
@@ -145,10 +145,10 @@ class DetailMoviePage extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             "Studio",
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white),
+                              style: Theme.of(context).textTheme.headline1.copyWith(
+                                  fontSize: 13,
+                                fontWeight: FontWeight.w600
+                              )
                           ),
                           Flexible(
                             child: Padding(
@@ -157,10 +157,11 @@ class DetailMoviePage extends StatelessWidget {
                                 spacing: 5,
                                 children: state.data.productionCompanies.map((e) => Text(
                                 "${e.name},",
-                                style: TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.white.withOpacity(0.7)),
+                                    style: Theme.of(context).textTheme.headline1.copyWith(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w400,
+                                        color: Theme.of(context).textTheme.headline1.color.withOpacity(0.7)
+                                    )
                               )).toList(),),
                             ),
                           )
@@ -173,10 +174,10 @@ class DetailMoviePage extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             "Genre",
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white),
+                              style: Theme.of(context).textTheme.headline1.copyWith(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                              )
                           ),
                           Flexible(
                             child: Padding(
@@ -185,10 +186,11 @@ class DetailMoviePage extends StatelessWidget {
                                 spacing: 5,
                                 children: state.data.genres.map((e) => Text(
                                   "${e.name},",
-                                  style: TextStyle(
+                                  style: Theme.of(context).textTheme.headline1.copyWith(
                                       fontSize: 13,
                                       fontWeight: FontWeight.w400,
-                                      color: Colors.white.withOpacity(0.7)),
+                                      color: Theme.of(context).textTheme.headline1.color.withOpacity(0.7)
+                                  ),
                                 )).toList(),),
                             ),
                           )
@@ -201,19 +203,20 @@ class DetailMoviePage extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             "Release",
-                            style: TextStyle(
+                            style: Theme.of(context).textTheme.headline1.copyWith(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w600,
-                                color: Colors.white),
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 24),
                             child: Text(
                               DateTime.parse(state.data.releaseDate).year.toString(),
-                              style: TextStyle(
+                              style: Theme.of(context).textTheme.headline1.copyWith(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w400,
-                                  color: Colors.white.withOpacity(0.7)),
+                                  color: Theme.of(context).textTheme.headline1.color.withOpacity(0.7)
+                              ),
                             ),
                           )
                         ],

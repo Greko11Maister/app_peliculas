@@ -21,7 +21,10 @@ class MovieCardComponent extends StatelessWidget {
               child: Image.network(urlImage, width: 130,height: 170,)),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(title, style: TextStyle(fontWeight: FontWeight.w300, fontSize: 13, color: Colors.white),),
+            child: Text(title,
+                    style: Theme.of(context).textTheme.headline1.copyWith(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w400),),
           ),
           Padding(
             padding: const EdgeInsets.only(left:8.0),

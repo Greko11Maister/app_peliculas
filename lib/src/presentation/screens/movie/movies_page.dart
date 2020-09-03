@@ -54,7 +54,7 @@ class _MoviesPageState extends State<MoviesPage> {
               }),
               Column(children: <Widget>[
                 Container(
-                margin: EdgeInsets.only(top: 58, left: 56, right: 105, bottom: 31),
+                margin: EdgeInsets.only(top: 30, left: 56, right: 105, bottom: 31),
                 child: Text("Hello, what do you want to watch?", style: Theme.of(context).textTheme.headline1,)),
                 Container(
               margin: EdgeInsets.only(left: 56, right: 30),

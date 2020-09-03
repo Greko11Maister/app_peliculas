@@ -17,8 +17,15 @@ class SliderMoviesComponent extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-          Text(title.toUpperCase(), style: TextStyle(color: Colors.white,fontSize: 13, fontWeight: FontWeight.w600),),
-          FlatButton(onPressed: (){}, child: Text("See all", style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 13, fontWeight: FontWeight.w400),)),
+          Text(title.toUpperCase(),
+            style: Theme.of(context).textTheme.headline1.copyWith(
+                fontSize: 13,
+                fontWeight: FontWeight.w600),),
+          FlatButton(onPressed: (){}, child: Text("See all",
+            style: Theme.of(context).textTheme.headline1.copyWith(
+            fontSize: 13,
+            color: Theme.of(context).textTheme.headline1.color,
+            fontWeight: FontWeight.w400),)),
         ],),
       ),
       Container(

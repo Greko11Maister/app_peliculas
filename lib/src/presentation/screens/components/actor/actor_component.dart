@@ -20,8 +20,10 @@ class ActorComponent extends StatelessWidget {
             padding: const EdgeInsets.only(top: 10),
             child: Text(
               name,
-              style:
-                  TextStyle(fontSize: 13, color: Colors.white.withOpacity(0.7),),
+              style: Theme.of(context).textTheme.headline1.copyWith(
+                fontSize: 13,
+                color: Theme.of(context).textTheme.headline1.color.withOpacity(0.7)
+              ),
               textAlign: TextAlign.center,
             ),
           )

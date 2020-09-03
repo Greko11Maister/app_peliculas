@@ -8,8 +8,8 @@ enum AppTheme {
 final appThemeData = {
   AppTheme.BlueLight: ThemeData(
     brightness: Brightness.light,
-    primaryColor: Colors.black,
-    backgroundColor: Colors.white,
+    primaryColor: Colors.white,
+    backgroundColor: Color(0xFFEEEEEE),
       textTheme: TextTheme(
           headline1: TextStyle(
               color: Colors.black,

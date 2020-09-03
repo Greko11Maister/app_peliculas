@@ -128,11 +128,12 @@ class DetailMoviePage extends StatelessWidget {
                       child: ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
-                          itemCount: 10,
+                          itemCount: state.data.productionCompanies.length,
                           itemBuilder: (context, i) {
+                            var value = state.data.productionCompanies[i];
                             return ActorComponent(
-                              avatarUrl: "",
-                              name: "Jason Momoa",
+                              avatarUrl: "https://image.tmdb.org/t/p/w500${value.logoPath}",
+                              name: value.name,
                             );
                           }),
                     ),

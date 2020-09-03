@@ -33,7 +33,7 @@ class SliderMoviesComponent extends StatelessWidget {
                 urlImage: "https://image.tmdb.org/t/p/w500${movies[i].posterPath}",
                 voteAverage: movies[i].voteAverage,
                 onTap: (){
-                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=> DetailMoviePage()));
+                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=> DetailMoviePage(idMovie: movies[i].id,)));
                 },
               );
             }),

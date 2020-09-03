@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:movieapp/src/presentation/screens/movie/models/detail_movie_model.dart';
 import 'package:movieapp/src/presentation/screens/movie/models/search_multi_model.dart';
 import 'package:movieapp/src/presentation/screens/movie/repository/movies_repository.dart';
 
@@ -23,6 +24,9 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
         break;
       case GetDiscoverEvent:
         yield* _mapDiscoverToState(event);
+        break;
+      case GetDetailMovieIdEvent:
+        yield* _mapDetailToState(event);
         break;
     }
   }
@@ -50,6 +54,15 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
       recommended: res.results,
       top: res.results.where((element) => element.voteAverage >= 6).toList()
       );
+    } catch (error) {
+      print(error);
+    }
+  }
+
+  Stream<MovieState> _mapDetailToState(GetDetailMovieIdEvent event) async* {
+    try {
+      var res = await _moviesRepository.detailMovie(event.id);
+      yield DetailMovieState(data: res);
     } catch (error) {
       print(error);
     }

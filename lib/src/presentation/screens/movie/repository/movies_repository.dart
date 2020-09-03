@@ -1,4 +1,5 @@
 import 'package:movieapp/src/presentation/screens/movie/http/movie_http.dart';
+import 'package:movieapp/src/presentation/screens/movie/models/detail_movie_model.dart';
 import 'package:movieapp/src/presentation/screens/movie/models/search_multi_model.dart';
 
 class MoviesRepository {
@@ -15,6 +16,15 @@ class MoviesRepository {
   Future<SearchMultiModel> discover() async{
     try{
       return movieHttp.discover();
+    }catch (error){
+      print("Http Error $error");
+      return Future.error(error);
+    }
+  }
+
+  Future<DetailMovieModel> detailMovie(id) async{
+    try{
+      return movieHttp.detailMovie(id);
     }catch (error){
       print("Http Error $error");
       return Future.error(error);

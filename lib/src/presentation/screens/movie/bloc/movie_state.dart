@@ -18,6 +18,22 @@ class ResultMoviesState extends MovieState{
 
   @override
   List<Object> get props => [
+    data,
+    top,
+    recommended
+  ];
+
+  @override
+  bool get stringify => true;
+}
+
+class DetailMovieState extends MovieState{
+  final DetailMovieModel data;
+
+  DetailMovieState({this.data});
+
+  @override
+  List<Object> get props => [
     data
   ];
 

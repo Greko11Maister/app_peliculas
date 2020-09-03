@@ -16,6 +16,9 @@ class SearchMultiEvent extends MovieEvent{
   SearchMultiEvent({this.query});
 }
 
-class GetDiscoverEvent extends MovieEvent{
+class GetDiscoverEvent extends MovieEvent{}
 
+class GetDetailMovieIdEvent extends MovieEvent{
+  final id;
+  GetDetailMovieIdEvent({this.id});
 }
